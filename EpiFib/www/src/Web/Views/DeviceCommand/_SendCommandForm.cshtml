@@ -1,0 +1,34 @@
+﻿@using Resources
+@model Web.Models.CommandViewModel
+
+@using (Ajax.BeginForm("SendCommand", "DeviceCommand", null,
+    new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnBegin = "IoTApp.DeviceCommand.onBegin",
+        OnFailure = "IoTApp.DeviceCommand.onFailure",
+        OnSuccess = "IoTApp.DeviceCommand.onSuccess",
+        OnComplete = "IoTApp.DeviceCommand.onComplete",
+        LoadingElementId = "loadingElement",
+
+    }, null))
+{
+    @Html.AntiForgeryToken()
+    for (var i = 0; i < Model.Parameters.Count; i++)
+    {
+        <div class="command_parameter_field">
+            @Html.LabelFor(m => m.Parameters[i].Name, Model.Parameters[i].Name, new { @class = "command_parameter_field__label" })
+            @Html.EditorFor(m => m.Parameters[i].Value, $"edit_{Model.Parameters[i].Type}", new { Suffix = $"Value_{i}"})
+            @Html.ValidationMessageFor(m => m.Parameters[i].Value)
+            @foreach (string message in Model.Parameters[i].ErrorMessages)
+            {
+                @IoTHelpers.ErrorLabel(message)
+            }
+            @Html.HiddenFor(model => Model.Parameters[i].Name)
+            @Html.HiddenFor(model => Model.Parameters[i].Type)
+        </div>
+    }
+    @Html.HiddenFor(command => command.Name)
+    @Html.HiddenFor(command => command.DeviceId)
+    <button type="submit" id="sendCommand_button" class="button_base button_execute">@Strings.SendCommand</button>
+}

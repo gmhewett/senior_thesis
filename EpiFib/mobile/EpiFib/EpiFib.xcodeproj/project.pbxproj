@@ -1,0 +1,910 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		782880BCE145557E92B737D1 /* Pods_EpiFib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F955D22D333F59BC7317A38 /* Pods_EpiFib.framework */; };
+		86C326EDE9E29A1C61638E2D /* Pods_EpiFibTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F177E8A464A2A020F1DC9A7 /* Pods_EpiFibTests.framework */; };
+		A53CB0B21E7F2873000132D1 /* EmergencyOwnerPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53CB0B11E7F2873000132D1 /* EmergencyOwnerPacket.swift */; };
+		A53CB0B41E7F2949000132D1 /* EmergencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53CB0B31E7F2949000132D1 /* EmergencyContainer.swift */; };
+		A53CB0B61E7F2A50000132D1 /* EmergencyUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53CB0B51E7F2A50000132D1 /* EmergencyUserInfo.swift */; };
+		A53CB0B81E7F2CD6000132D1 /* EmergencyResponderPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53CB0B71E7F2CD6000132D1 /* EmergencyResponderPacket.swift */; };
+		A53CB0BA1E7F31D4000132D1 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53CB0B91E7F31D4000132D1 /* LocationService.swift */; };
+		A53CB0BC1E7F3BA3000132D1 /* EmergencyInstanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53CB0BB1E7F3BA3000132D1 /* EmergencyInstanceRequest.swift */; };
+		A53E8CF71E7EE5A6006E7D3C /* Call911ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E8CF61E7EE5A6006E7D3C /* Call911ViewController.swift */; };
+		A53E8CF91E7EF34B006E7D3C /* FindHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E8CF81E7EF34B006E7D3C /* FindHelpViewController.swift */; };
+		A53E8CFD1E7F1065006E7D3C /* ExactLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E8CFC1E7F1065006E7D3C /* ExactLocation.swift */; };
+		A547D2801E8014AB0032B321 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A547D27F1E8014AB0032B321 /* MapKit.framework */; };
+		A551AB841E62656200F9A4F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A551AB831E62656200F9A4F4 /* AppDelegate.swift */; };
+		A551AB891E62656200F9A4F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A551AB871E62656200F9A4F4 /* Main.storyboard */; };
+		A551AB8C1E62656200F9A4F4 /* EpiFib.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A551AB8A1E62656200F9A4F4 /* EpiFib.xcdatamodeld */; };
+		A551AB8E1E62656200F9A4F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A551AB8D1E62656200F9A4F4 /* Assets.xcassets */; };
+		A551AB911E62656300F9A4F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A551AB8F1E62656300F9A4F4 /* LaunchScreen.storyboard */; };
+		A551AB9C1E62656300F9A4F4 /* EpiFibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A551AB9B1E62656300F9A4F4 /* EpiFibTests.swift */; };
+		A551ABA71E62656300F9A4F4 /* EpiFibUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A551ABA61E62656300F9A4F4 /* EpiFibUITests.swift */; };
+		A57DD2B11E632A7D00640487 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DD2B01E632A7D00640487 /* RegisterViewController.swift */; };
+		A57DD2B41E632EBD00640487 /* EpiFibApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DD2B31E632EBD00640487 /* EpiFibApiService.swift */; };
+		A57DD2B71E6369A100640487 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DD2B61E6369A100640487 /* AuthService.swift */; };
+		A57DD2BC1E63757A00640487 /* SwinjectStoryboardSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DD2BB1E63757A00640487 /* SwinjectStoryboardSetup.swift */; };
+		A5A5BEEC1E7CF8950041A629 /* EmergencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5BEEB1E7CF8950041A629 /* EmergencyService.swift */; };
+		A5A5BEEE1E7CF9210041A629 /* EmergencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5BEED1E7CF9210041A629 /* EmergencyType.swift */; };
+		A5A5BEF31E7D113A0041A629 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A5BEF21E7D113A0041A629 /* SWRevealViewController.m */; };
+		A5A5BEF51E7D12BA0041A629 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5BEF41E7D12BA0041A629 /* MenuViewController.swift */; };
+		A5A5BEF71E7D18FF0041A629 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5BEF61E7D18FF0041A629 /* ProfileViewController.swift */; };
+		A5B070561E626CB800774700 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B070551E626CB800774700 /* HomeViewController.swift */; };
+		A5B070581E62721500774700 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B070571E62721500774700 /* LoginViewController.swift */; };
+		A5D57B7F1E86484600943B47 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D57B7E1E86484600943B47 /* ProgressHUD.swift */; };
+		A5EF5ED31E876B0D0003B2E4 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EF5ED21E876B0D0003B2E4 /* NotificationService.swift */; };
+		A5F781671E843FF000866056 /* ResponderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F781661E843FF000866056 /* ResponderViewController.swift */; };
+		A5FFE29B1E637B2100149EFC /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFE29A1E637B2100149EFC /* ConfigManager.swift */; };
+		B1BBE78E43DC89F5577E0AA4 /* Pods_EpiFibUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD7530B48603CA76ADE0FED /* Pods_EpiFibUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A551AB981E62656300F9A4F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A551AB781E62656200F9A4F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A551AB7F1E62656200F9A4F4;
+			remoteInfo = EpiFib;
+		};
+		A551ABA31E62656300F9A4F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A551AB781E62656200F9A4F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A551AB7F1E62656200F9A4F4;
+			remoteInfo = EpiFib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1281D83133C5C51687B74B5D /* Pods-EpiFibUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpiFibUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EpiFibUITests/Pods-EpiFibUITests.release.xcconfig"; sourceTree = "<group>"; };
+		220921B5F9001DABC86D41FB /* Pods-EpiFibTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpiFibTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EpiFibTests/Pods-EpiFibTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2FD7530B48603CA76ADE0FED /* Pods_EpiFibUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EpiFibUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4582C1028C7F429E67A1310D /* Pods-EpiFibUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpiFibUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EpiFibUITests/Pods-EpiFibUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4F177E8A464A2A020F1DC9A7 /* Pods_EpiFibTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EpiFibTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E8B3E399C66B70630FCDE1B /* Pods-EpiFibTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpiFibTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EpiFibTests/Pods-EpiFibTests.release.xcconfig"; sourceTree = "<group>"; };
+		6E0E63507327FF51FDFA196E /* Pods-EpiFib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpiFib.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EpiFib/Pods-EpiFib.debug.xcconfig"; sourceTree = "<group>"; };
+		85AA1FA0CEF3D55EC20FF328 /* Pods-EpiFib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpiFib.release.xcconfig"; path = "Pods/Target Support Files/Pods-EpiFib/Pods-EpiFib.release.xcconfig"; sourceTree = "<group>"; };
+		9F955D22D333F59BC7317A38 /* Pods_EpiFib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EpiFib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A53CB0B11E7F2873000132D1 /* EmergencyOwnerPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyOwnerPacket.swift; sourceTree = "<group>"; };
+		A53CB0B31E7F2949000132D1 /* EmergencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContainer.swift; sourceTree = "<group>"; };
+		A53CB0B51E7F2A50000132D1 /* EmergencyUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyUserInfo.swift; sourceTree = "<group>"; };
+		A53CB0B71E7F2CD6000132D1 /* EmergencyResponderPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyResponderPacket.swift; sourceTree = "<group>"; };
+		A53CB0B91E7F31D4000132D1 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		A53CB0BB1E7F3BA3000132D1 /* EmergencyInstanceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyInstanceRequest.swift; sourceTree = "<group>"; };
+		A53E8CF61E7EE5A6006E7D3C /* Call911ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call911ViewController.swift; sourceTree = "<group>"; };
+		A53E8CF81E7EF34B006E7D3C /* FindHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindHelpViewController.swift; sourceTree = "<group>"; };
+		A53E8CFC1E7F1065006E7D3C /* ExactLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExactLocation.swift; sourceTree = "<group>"; };
+		A547D27F1E8014AB0032B321 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A551AB801E62656200F9A4F4 /* EpiFib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpiFib.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A551AB831E62656200F9A4F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A551AB881E62656200F9A4F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A551AB8B1E62656200F9A4F4 /* EpiFib.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EpiFib.xcdatamodel; sourceTree = "<group>"; };
+		A551AB8D1E62656200F9A4F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A551AB901E62656300F9A4F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A551AB921E62656300F9A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A551AB971E62656300F9A4F4 /* EpiFibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EpiFibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A551AB9B1E62656300F9A4F4 /* EpiFibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpiFibTests.swift; sourceTree = "<group>"; };
+		A551AB9D1E62656300F9A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A551ABA21E62656300F9A4F4 /* EpiFibUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EpiFibUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A551ABA61E62656300F9A4F4 /* EpiFibUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpiFibUITests.swift; sourceTree = "<group>"; };
+		A551ABA81E62656300F9A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A57DD2B01E632A7D00640487 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A57DD2B31E632EBD00640487 /* EpiFibApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpiFibApiService.swift; sourceTree = "<group>"; };
+		A57DD2B61E6369A100640487 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		A57DD2BB1E63757A00640487 /* SwinjectStoryboardSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboardSetup.swift; sourceTree = "<group>"; };
+		A5A5BEEB1E7CF8950041A629 /* EmergencyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyService.swift; sourceTree = "<group>"; };
+		A5A5BEED1E7CF9210041A629 /* EmergencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyType.swift; sourceTree = "<group>"; };
+		A5A5BEF01E7D11390041A629 /* EpiFib-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EpiFib-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5A5BEF11E7D113A0041A629 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		A5A5BEF21E7D113A0041A629 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		A5A5BEF41E7D12BA0041A629 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A5A5BEF61E7D18FF0041A629 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A5B070551E626CB800774700 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A5B070571E62721500774700 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A5D57B7E1E86484600943B47 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		A5EF5ED21E876B0D0003B2E4 /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		A5F781661E843FF000866056 /* ResponderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderViewController.swift; sourceTree = "<group>"; };
+		A5FD29E41E63C34500273B2F /* EpiFib.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EpiFib.entitlements; sourceTree = "<group>"; };
+		A5FFE29A1E637B2100149EFC /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A551AB7D1E62656200F9A4F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A547D2801E8014AB0032B321 /* MapKit.framework in Frameworks */,
+				782880BCE145557E92B737D1 /* Pods_EpiFib.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A551AB941E62656300F9A4F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86C326EDE9E29A1C61638E2D /* Pods_EpiFibTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A551AB9F1E62656300F9A4F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BBE78E43DC89F5577E0AA4 /* Pods_EpiFibUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		99787CDE938FE23F3CF644B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A547D27F1E8014AB0032B321 /* MapKit.framework */,
+				9F955D22D333F59BC7317A38 /* Pods_EpiFib.framework */,
+				4F177E8A464A2A020F1DC9A7 /* Pods_EpiFibTests.framework */,
+				2FD7530B48603CA76ADE0FED /* Pods_EpiFibUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A551AB771E62656200F9A4F4 = {
+			isa = PBXGroup;
+			children = (
+				A551AB821E62656200F9A4F4 /* EpiFib */,
+				A551AB9A1E62656300F9A4F4 /* EpiFibTests */,
+				A551ABA51E62656300F9A4F4 /* EpiFibUITests */,
+				A551AB811E62656200F9A4F4 /* Products */,
+				FD3377C050E438EB159F15BD /* Pods */,
+				99787CDE938FE23F3CF644B3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A551AB811E62656200F9A4F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A551AB801E62656200F9A4F4 /* EpiFib.app */,
+				A551AB971E62656300F9A4F4 /* EpiFibTests.xctest */,
+				A551ABA21E62656300F9A4F4 /* EpiFibUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A551AB821E62656200F9A4F4 /* EpiFib */ = {
+			isa = PBXGroup;
+			children = (
+				A5A5BEEF1E7D10FE0041A629 /* SWRevealViewController */,
+				A57DD2B81E636BA800640487 /* Models */,
+				A57DD2B51E632ECE00640487 /* Services */,
+				A57DD2B21E632D3400640487 /* ViewControllers */,
+				A551AB831E62656200F9A4F4 /* AppDelegate.swift */,
+				A57DD2BB1E63757A00640487 /* SwinjectStoryboardSetup.swift */,
+				A551AB871E62656200F9A4F4 /* Main.storyboard */,
+				A551AB8F1E62656300F9A4F4 /* LaunchScreen.storyboard */,
+				A551AB8D1E62656200F9A4F4 /* Assets.xcassets */,
+				A551AB921E62656300F9A4F4 /* Info.plist */,
+				A551AB8A1E62656200F9A4F4 /* EpiFib.xcdatamodeld */,
+				A5FD29E41E63C34500273B2F /* EpiFib.entitlements */,
+			);
+			path = EpiFib;
+			sourceTree = "<group>";
+		};
+		A551AB9A1E62656300F9A4F4 /* EpiFibTests */ = {
+			isa = PBXGroup;
+			children = (
+				A551AB9B1E62656300F9A4F4 /* EpiFibTests.swift */,
+				A551AB9D1E62656300F9A4F4 /* Info.plist */,
+			);
+			path = EpiFibTests;
+			sourceTree = "<group>";
+		};
+		A551ABA51E62656300F9A4F4 /* EpiFibUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A551ABA61E62656300F9A4F4 /* EpiFibUITests.swift */,
+				A551ABA81E62656300F9A4F4 /* Info.plist */,
+			);
+			path = EpiFibUITests;
+			sourceTree = "<group>";
+		};
+		A57DD2B21E632D3400640487 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5B070551E626CB800774700 /* HomeViewController.swift */,
+				A5B070571E62721500774700 /* LoginViewController.swift */,
+				A57DD2B01E632A7D00640487 /* RegisterViewController.swift */,
+				A5A5BEF41E7D12BA0041A629 /* MenuViewController.swift */,
+				A5A5BEF61E7D18FF0041A629 /* ProfileViewController.swift */,
+				A53E8CF61E7EE5A6006E7D3C /* Call911ViewController.swift */,
+				A53E8CF81E7EF34B006E7D3C /* FindHelpViewController.swift */,
+				A5F781661E843FF000866056 /* ResponderViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A57DD2B51E632ECE00640487 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A57DD2B31E632EBD00640487 /* EpiFibApiService.swift */,
+				A57DD2B61E6369A100640487 /* AuthService.swift */,
+				A5FFE29A1E637B2100149EFC /* ConfigManager.swift */,
+				A5A5BEEB1E7CF8950041A629 /* EmergencyService.swift */,
+				A53CB0B91E7F31D4000132D1 /* LocationService.swift */,
+				A5EF5ED21E876B0D0003B2E4 /* NotificationService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		A57DD2B81E636BA800640487 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5A5BEED1E7CF9210041A629 /* EmergencyType.swift */,
+				A53E8CFC1E7F1065006E7D3C /* ExactLocation.swift */,
+				A53CB0B11E7F2873000132D1 /* EmergencyOwnerPacket.swift */,
+				A53CB0B31E7F2949000132D1 /* EmergencyContainer.swift */,
+				A53CB0B51E7F2A50000132D1 /* EmergencyUserInfo.swift */,
+				A53CB0B71E7F2CD6000132D1 /* EmergencyResponderPacket.swift */,
+				A53CB0BB1E7F3BA3000132D1 /* EmergencyInstanceRequest.swift */,
+				A5D57B7E1E86484600943B47 /* ProgressHUD.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A5A5BEEF1E7D10FE0041A629 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A5A5BEF11E7D113A0041A629 /* SWRevealViewController.h */,
+				A5A5BEF21E7D113A0041A629 /* SWRevealViewController.m */,
+				A5A5BEF01E7D11390041A629 /* EpiFib-Bridging-Header.h */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		FD3377C050E438EB159F15BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E0E63507327FF51FDFA196E /* Pods-EpiFib.debug.xcconfig */,
+				85AA1FA0CEF3D55EC20FF328 /* Pods-EpiFib.release.xcconfig */,
+				220921B5F9001DABC86D41FB /* Pods-EpiFibTests.debug.xcconfig */,
+				5E8B3E399C66B70630FCDE1B /* Pods-EpiFibTests.release.xcconfig */,
+				4582C1028C7F429E67A1310D /* Pods-EpiFibUITests.debug.xcconfig */,
+				1281D83133C5C51687B74B5D /* Pods-EpiFibUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A551AB7F1E62656200F9A4F4 /* EpiFib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A551ABAB1E62656300F9A4F4 /* Build configuration list for PBXNativeTarget "EpiFib" */;
+			buildPhases = (
+				A4C649B8ECB893BA4F0A2682 /* [CP] Check Pods Manifest.lock */,
+				A551AB7C1E62656200F9A4F4 /* Sources */,
+				A551AB7D1E62656200F9A4F4 /* Frameworks */,
+				A551AB7E1E62656200F9A4F4 /* Resources */,
+				A072575327A2F829548979F7 /* [CP] Embed Pods Frameworks */,
+				08D299D05F49DE906E4AEF6B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EpiFib;
+			productName = EpiFib;
+			productReference = A551AB801E62656200F9A4F4 /* EpiFib.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A551AB961E62656300F9A4F4 /* EpiFibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A551ABAE1E62656300F9A4F4 /* Build configuration list for PBXNativeTarget "EpiFibTests" */;
+			buildPhases = (
+				A0D6C1D9B8416677C123D919 /* [CP] Check Pods Manifest.lock */,
+				A551AB931E62656300F9A4F4 /* Sources */,
+				A551AB941E62656300F9A4F4 /* Frameworks */,
+				A551AB951E62656300F9A4F4 /* Resources */,
+				9A363071924CA04B93425304 /* [CP] Embed Pods Frameworks */,
+				C75E773E95426B11B48BC7A9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A551AB991E62656300F9A4F4 /* PBXTargetDependency */,
+			);
+			name = EpiFibTests;
+			productName = EpiFibTests;
+			productReference = A551AB971E62656300F9A4F4 /* EpiFibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A551ABA11E62656300F9A4F4 /* EpiFibUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A551ABB11E62656300F9A4F4 /* Build configuration list for PBXNativeTarget "EpiFibUITests" */;
+			buildPhases = (
+				EEA8D82BEB1B6EF117B29250 /* [CP] Check Pods Manifest.lock */,
+				A551AB9E1E62656300F9A4F4 /* Sources */,
+				A551AB9F1E62656300F9A4F4 /* Frameworks */,
+				A551ABA01E62656300F9A4F4 /* Resources */,
+				B5D6910E4719E5CCED2301E4 /* [CP] Embed Pods Frameworks */,
+				3F0FF6F21D79718B9A55A995 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A551ABA41E62656300F9A4F4 /* PBXTargetDependency */,
+			);
+			name = EpiFibUITests;
+			productName = EpiFibUITests;
+			productReference = A551ABA21E62656300F9A4F4 /* EpiFibUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A551AB781E62656200F9A4F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "The Reach Lab, LLC";
+				TargetAttributes = {
+					A551AB7F1E62656200F9A4F4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = M56855K9LT;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					A551AB961E62656300F9A4F4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = M56855K9LT;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A551AB7F1E62656200F9A4F4;
+					};
+					A551ABA11E62656300F9A4F4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = M56855K9LT;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A551AB7F1E62656200F9A4F4;
+					};
+				};
+			};
+			buildConfigurationList = A551AB7B1E62656200F9A4F4 /* Build configuration list for PBXProject "EpiFib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A551AB771E62656200F9A4F4;
+			productRefGroup = A551AB811E62656200F9A4F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A551AB7F1E62656200F9A4F4 /* EpiFib */,
+				A551AB961E62656300F9A4F4 /* EpiFibTests */,
+				A551ABA11E62656300F9A4F4 /* EpiFibUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A551AB7E1E62656200F9A4F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A551AB911E62656300F9A4F4 /* LaunchScreen.storyboard in Resources */,
+				A551AB8E1E62656200F9A4F4 /* Assets.xcassets in Resources */,
+				A551AB891E62656200F9A4F4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A551AB951E62656300F9A4F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A551ABA01E62656300F9A4F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08D299D05F49DE906E4AEF6B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EpiFib/Pods-EpiFib-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F0FF6F21D79718B9A55A995 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EpiFibUITests/Pods-EpiFibUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A363071924CA04B93425304 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EpiFibTests/Pods-EpiFibTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A072575327A2F829548979F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EpiFib/Pods-EpiFib-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0D6C1D9B8416677C123D919 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A4C649B8ECB893BA4F0A2682 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B5D6910E4719E5CCED2301E4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EpiFibUITests/Pods-EpiFibUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C75E773E95426B11B48BC7A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EpiFibTests/Pods-EpiFibTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEA8D82BEB1B6EF117B29250 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A551AB7C1E62656200F9A4F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A53E8CF91E7EF34B006E7D3C /* FindHelpViewController.swift in Sources */,
+				A5A5BEF31E7D113A0041A629 /* SWRevealViewController.m in Sources */,
+				A5EF5ED31E876B0D0003B2E4 /* NotificationService.swift in Sources */,
+				A57DD2B11E632A7D00640487 /* RegisterViewController.swift in Sources */,
+				A53CB0B61E7F2A50000132D1 /* EmergencyUserInfo.swift in Sources */,
+				A5A5BEEC1E7CF8950041A629 /* EmergencyService.swift in Sources */,
+				A5A5BEF51E7D12BA0041A629 /* MenuViewController.swift in Sources */,
+				A53CB0BA1E7F31D4000132D1 /* LocationService.swift in Sources */,
+				A5B070561E626CB800774700 /* HomeViewController.swift in Sources */,
+				A5D57B7F1E86484600943B47 /* ProgressHUD.swift in Sources */,
+				A53CB0BC1E7F3BA3000132D1 /* EmergencyInstanceRequest.swift in Sources */,
+				A5F781671E843FF000866056 /* ResponderViewController.swift in Sources */,
+				A57DD2BC1E63757A00640487 /* SwinjectStoryboardSetup.swift in Sources */,
+				A5FFE29B1E637B2100149EFC /* ConfigManager.swift in Sources */,
+				A5B070581E62721500774700 /* LoginViewController.swift in Sources */,
+				A53CB0B41E7F2949000132D1 /* EmergencyContainer.swift in Sources */,
+				A551AB8C1E62656200F9A4F4 /* EpiFib.xcdatamodeld in Sources */,
+				A5A5BEEE1E7CF9210041A629 /* EmergencyType.swift in Sources */,
+				A551AB841E62656200F9A4F4 /* AppDelegate.swift in Sources */,
+				A53CB0B81E7F2CD6000132D1 /* EmergencyResponderPacket.swift in Sources */,
+				A57DD2B41E632EBD00640487 /* EpiFibApiService.swift in Sources */,
+				A53E8CF71E7EE5A6006E7D3C /* Call911ViewController.swift in Sources */,
+				A53E8CFD1E7F1065006E7D3C /* ExactLocation.swift in Sources */,
+				A5A5BEF71E7D18FF0041A629 /* ProfileViewController.swift in Sources */,
+				A53CB0B21E7F2873000132D1 /* EmergencyOwnerPacket.swift in Sources */,
+				A57DD2B71E6369A100640487 /* AuthService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A551AB931E62656300F9A4F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A551AB9C1E62656300F9A4F4 /* EpiFibTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A551AB9E1E62656300F9A4F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A551ABA71E62656300F9A4F4 /* EpiFibUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A551AB991E62656300F9A4F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A551AB7F1E62656200F9A4F4 /* EpiFib */;
+			targetProxy = A551AB981E62656300F9A4F4 /* PBXContainerItemProxy */;
+		};
+		A551ABA41E62656300F9A4F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A551AB7F1E62656200F9A4F4 /* EpiFib */;
+			targetProxy = A551ABA31E62656300F9A4F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A551AB871E62656200F9A4F4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A551AB881E62656200F9A4F4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A551AB8F1E62656300F9A4F4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A551AB901E62656300F9A4F4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A551ABA91E62656300F9A4F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A551ABAA1E62656300F9A4F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A551ABAC1E62656300F9A4F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E0E63507327FF51FDFA196E /* Pods-EpiFib.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = EpiFib/EpiFib.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = M56855K9LT;
+				INFOPLIST_FILE = EpiFib/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thereachlab.EpiFib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "EpiFib/EpiFib-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A551ABAD1E62656300F9A4F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85AA1FA0CEF3D55EC20FF328 /* Pods-EpiFib.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = EpiFib/EpiFib.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = M56855K9LT;
+				INFOPLIST_FILE = EpiFib/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thereachlab.EpiFib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "EpiFib/EpiFib-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A551ABAF1E62656300F9A4F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 220921B5F9001DABC86D41FB /* Pods-EpiFibTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = M56855K9LT;
+				INFOPLIST_FILE = EpiFibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thereachlab.EpiFibTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EpiFib.app/EpiFib";
+			};
+			name = Debug;
+		};
+		A551ABB01E62656300F9A4F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E8B3E399C66B70630FCDE1B /* Pods-EpiFibTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = M56855K9LT;
+				INFOPLIST_FILE = EpiFibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thereachlab.EpiFibTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EpiFib.app/EpiFib";
+			};
+			name = Release;
+		};
+		A551ABB21E62656300F9A4F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4582C1028C7F429E67A1310D /* Pods-EpiFibUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = M56855K9LT;
+				INFOPLIST_FILE = EpiFibUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thereachlab.EpiFibUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = EpiFib;
+			};
+			name = Debug;
+		};
+		A551ABB31E62656300F9A4F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1281D83133C5C51687B74B5D /* Pods-EpiFibUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = M56855K9LT;
+				INFOPLIST_FILE = EpiFibUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thereachlab.EpiFibUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = EpiFib;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A551AB7B1E62656200F9A4F4 /* Build configuration list for PBXProject "EpiFib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A551ABA91E62656300F9A4F4 /* Debug */,
+				A551ABAA1E62656300F9A4F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A551ABAB1E62656300F9A4F4 /* Build configuration list for PBXNativeTarget "EpiFib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A551ABAC1E62656300F9A4F4 /* Debug */,
+				A551ABAD1E62656300F9A4F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A551ABAE1E62656300F9A4F4 /* Build configuration list for PBXNativeTarget "EpiFibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A551ABAF1E62656300F9A4F4 /* Debug */,
+				A551ABB01E62656300F9A4F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A551ABB11E62656300F9A4F4 /* Build configuration list for PBXNativeTarget "EpiFibUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A551ABB21E62656300F9A4F4 /* Debug */,
+				A551ABB31E62656300F9A4F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A551AB8A1E62656200F9A4F4 /* EpiFib.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A551AB8B1E62656200F9A4F4 /* EpiFib.xcdatamodel */,
+			);
+			currentVersion = A551AB8B1E62656200F9A4F4 /* EpiFib.xcdatamodel */;
+			path = EpiFib.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A551AB781E62656200F9A4F4 /* Project object */;
+}

@@ -1,0 +1,14 @@
+﻿@model List<Web.Navigation.NavigationMenuItem>
+<nav class="nav_subnav">
+    @foreach (var navigationMenuItem in Model)
+    {
+        if (navigationMenuItem.Selected)
+        {
+            <a class="@navigationMenuItem.Class">@navigationMenuItem.Text</a>
+        }
+        else
+        {
+            @Html.ActionLink(navigationMenuItem.Text, navigationMenuItem.Action, navigationMenuItem.Controller, null, new { @class = navigationMenuItem.Class })
+        }
+    }
+</nav>

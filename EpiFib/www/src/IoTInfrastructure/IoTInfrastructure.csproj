@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6EA6862-1EB5-49FD-9689-80C5C2D3AE13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IoTInfrastructure</RootNamespace>
+    <AssemblyName>IoTInfrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <StyleCopTreatErrorsAsWarnings>False</StyleCopTreatErrorsAsWarnings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\DeviceAdministrationExceptionBase.cs" />
+    <Compile Include="Exceptions\DeviceAlreadyRegisteredException.cs" />
+    <Compile Include="Exceptions\DeviceNotRegisteredException.cs" />
+    <Compile Include="Exceptions\DeviceRegistrationException.cs" />
+    <Compile Include="Exceptions\UnsupportedCommandException.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
+    <Compile Include="Models\ActionMapping.cs" />
+    <Compile Include="Models\ActionMappingExtended.cs" />
+    <Compile Include="Models\ActionModel.cs" />
+    <Compile Include="Models\AlertHistoryItemModel.cs" />
+    <Compile Include="Models\CommandTypes.cs" />
+    <Compile Include="Models\DeviceListLocationsModel.cs" />
+    <Compile Include="Models\DeviceListQuery.cs" />
+    <Compile Include="Models\DeviceListQueryResult.cs" />
+    <Compile Include="Models\DeviceLocationModel.cs" />
+    <Compile Include="Models\DevicePropertyMetadata.cs" />
+    <Compile Include="Models\DevicePropertyValueModel.cs" />
+    <Compile Include="Models\DeviceQuery.cs" />
+    <Compile Include="Models\DeviceQueryResult.cs" />
+    <Compile Include="Models\DeviceRule.cs" />
+    <Compile Include="Models\DeviceRuleBlobEntity.cs" />
+    <Compile Include="Models\DeviceRuleDataFields.cs" />
+    <Compile Include="Models\DeviceTelemetryFieldModel.cs" />
+    <Compile Include="Models\DeviceTelemetryModel.cs" />
+    <Compile Include="Models\DeviceTelemetrySummaryModel.cs" />
+    <Compile Include="Models\DeviceType.cs" />
+    <Compile Include="Models\DeviceWithKeys.cs" />
+    <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\FilterInfo.cs" />
+    <Compile Include="Models\FilterType.cs" />
+    <Compile Include="Models\PropertyType.cs" />
+    <Compile Include="Models\QuerySortOrder.cs" />
+    <Compile Include="Models\ServiceResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\ActionMappingRepository.cs" />
+    <Compile Include="Repository\ActionRepository.cs" />
+    <Compile Include="Repository\AlertsRepository.cs" />
+    <Compile Include="Repository\DeviceRegistryRepository.cs" />
+    <Compile Include="Repository\DeviceRulesRepository.cs" />
+    <Compile Include="Repository\DeviceTelemetryRepository.cs" />
+    <Compile Include="Repository\DeviceTypeRepository.cs" />
+    <Compile Include="Repository\FilterHelper.cs" />
+    <Compile Include="Repository\IActionMappingRepository.cs" />
+    <Compile Include="Repository\IActionRepository.cs" />
+    <Compile Include="Repository\IAlertsRepository.cs" />
+    <Compile Include="Repository\IDeviceRegistryCrudRepository.cs" />
+    <Compile Include="Repository\IDeviceRegistryListRepository.cs" />
+    <Compile Include="Repository\IDeviceRulesRepository.cs" />
+    <Compile Include="Repository\IDeviceTelemetryRepository.cs" />
+    <Compile Include="Repository\IDeviceTypeRepository.cs" />
+    <Compile Include="Repository\IIoTHubDeviceManager.cs" />
+    <Compile Include="Repository\IIoTHubRepository.cs" />
+    <Compile Include="Repository\IoTHubDeviceManager.cs" />
+    <Compile Include="Repository\IoTHubRepository.cs" />
+    <Compile Include="Services\ActionMappingService.cs" />
+    <Compile Include="Services\ActionService.cs" />
+    <Compile Include="Services\AlertsService.cs" />
+    <Compile Include="Services\CommandParameterTypeService.cs" />
+    <Compile Include="Services\DeviceRulesService.cs" />
+    <Compile Include="Services\DeviceService.cs" />
+    <Compile Include="Services\DeviceTelemetryService.cs" />
+    <Compile Include="Services\DeviceTypeService.cs" />
+    <Compile Include="Services\IActionMappingService.cs" />
+    <Compile Include="Services\IActionService.cs" />
+    <Compile Include="Services\IAlertsService.cs" />
+    <Compile Include="Services\ICommandParameterTypeService.cs" />
+    <Compile Include="Services\IDeviceRulesService.cs" />
+    <Compile Include="Services\IDeviceService.cs" />
+    <Compile Include="Services\IDeviceTelemetryService.cs" />
+    <Compile Include="Services\IDeviceTypeService.cs" />
+    <Compile Include="Services\ISecurityKeyGenerator.cs" />
+    <Compile Include="Services\SecurityKeyGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Azure.Amqp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Amqp.2.0.4\lib\net45\Microsoft.Azure.Amqp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Devices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Devices.1.2.4\lib\net451\Microsoft.Azure.Devices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Devices.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Devices.Shared.1.0.8\lib\net45\Microsoft.Azure.Devices.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.2.0.4\lib\net45\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.2\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.2\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.2\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=8.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.8.1.1\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLCrypto, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d4421c8a4786956c, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCLCrypto.2.0.147\lib\net45\PCLCrypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PInvoke.BCrypt, Version=0.5.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
+      <HintPath>..\packages\PInvoke.BCrypt.0.5.64\lib\net40\PInvoke.BCrypt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PInvoke.Kernel32, Version=0.5.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
+      <HintPath>..\packages\PInvoke.Kernel32.0.5.64\lib\net40\PInvoke.Kernel32.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PInvoke.NCrypt, Version=0.5.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
+      <HintPath>..\packages\PInvoke.NCrypt.0.5.64\lib\net40\PInvoke.NCrypt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PInvoke.Windows.Core, Version=0.5.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
+      <HintPath>..\packages\PInvoke.Windows.Core.0.5.64\lib\net20\PInvoke.Windows.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Spatial, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.2\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Validation, Version=2.4.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Validation.2.4.15\lib\net45\Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{caddc598-e1c6-4ac3-b297-395a9ebab2b0}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\externs\StyleCop\StyleCop.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

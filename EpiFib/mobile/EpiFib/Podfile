@@ -1,0 +1,28 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+
+target 'EpiFib' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for EpiFib
+  pod 'Alamofire', '~> 4.3'
+  pod 'Swinject', '2.0.0'
+  pod 'SwinjectStoryboard', '1.0.0'
+  pod 'KeychainSwift', '~> 7.0'
+  pod 'EVReflection'
+  pod 'EVReflection/Alamofire'
+
+  target 'EpiFibTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'EpiFibUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

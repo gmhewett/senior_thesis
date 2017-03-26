@@ -1,0 +1,8 @@
+﻿@model Web.Models.ActionPropertiesViewModel
+
+@{
+    if (Model.HasAssignActionPerm)
+    {
+        Html.RenderPartial("_ActionPropertiesUpdateAction", Model.UpdateActionModel);
+    }
+}

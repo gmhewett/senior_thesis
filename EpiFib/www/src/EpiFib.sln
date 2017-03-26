@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{BB16097F-BFC8-4DC4-91B8-75EFA954D482}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJobHost", "WebJobHost\WebJobHost.csproj", "{AFBC4A71-E45D-4C8E-B7C6-33AFFFAF0361}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventProcessor.WebJob", "EventProcessor.WebJob\EventProcessor.WebJob.csproj", "{6F5E183E-1439-453C-A401-2A7FFA9AE1BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{CADDC598-E1C6-4AC3-B297-395A9EBAB2B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTInfrastructure", "IoTInfrastructure\IoTInfrastructure.csproj", "{F6EA6862-1EB5-49FD-9689-80C5C2D3AE13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{20D6B8A4-6C2C-48B5-83F4-05E820A18C4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulator.WebJob", "Simulator.WebJob\Simulator.WebJob.csproj", "{0C3DDACF-5255-41AE-A224-507330AE0339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeerInfrastructure", "PeerInfrastructure\PeerInfrastructure.csproj", "{70D898F4-8815-4D31-B277-E38AACC33FBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB16097F-BFC8-4DC4-91B8-75EFA954D482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB16097F-BFC8-4DC4-91B8-75EFA954D482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB16097F-BFC8-4DC4-91B8-75EFA954D482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB16097F-BFC8-4DC4-91B8-75EFA954D482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFBC4A71-E45D-4C8E-B7C6-33AFFFAF0361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFBC4A71-E45D-4C8E-B7C6-33AFFFAF0361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFBC4A71-E45D-4C8E-B7C6-33AFFFAF0361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFBC4A71-E45D-4C8E-B7C6-33AFFFAF0361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F5E183E-1439-453C-A401-2A7FFA9AE1BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F5E183E-1439-453C-A401-2A7FFA9AE1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F5E183E-1439-453C-A401-2A7FFA9AE1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F5E183E-1439-453C-A401-2A7FFA9AE1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CADDC598-E1C6-4AC3-B297-395A9EBAB2B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADDC598-E1C6-4AC3-B297-395A9EBAB2B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADDC598-E1C6-4AC3-B297-395A9EBAB2B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADDC598-E1C6-4AC3-B297-395A9EBAB2B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6EA6862-1EB5-49FD-9689-80C5C2D3AE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6EA6862-1EB5-49FD-9689-80C5C2D3AE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6EA6862-1EB5-49FD-9689-80C5C2D3AE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6EA6862-1EB5-49FD-9689-80C5C2D3AE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20D6B8A4-6C2C-48B5-83F4-05E820A18C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D6B8A4-6C2C-48B5-83F4-05E820A18C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D6B8A4-6C2C-48B5-83F4-05E820A18C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D6B8A4-6C2C-48B5-83F4-05E820A18C4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C3DDACF-5255-41AE-A224-507330AE0339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C3DDACF-5255-41AE-A224-507330AE0339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C3DDACF-5255-41AE-A224-507330AE0339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C3DDACF-5255-41AE-A224-507330AE0339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D898F4-8815-4D31-B277-E38AACC33FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D898F4-8815-4D31-B277-E38AACC33FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D898F4-8815-4D31-B277-E38AACC33FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D898F4-8815-4D31-B277-E38AACC33FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
+	EndGlobalSection
+EndGlobal

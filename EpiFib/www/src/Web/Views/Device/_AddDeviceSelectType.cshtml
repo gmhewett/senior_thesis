@@ -1,0 +1,36 @@
+﻿@using IoTInfrastructure.Models
+@using Resources
+@model List<IoTInfrastructure.Models.DeviceType>
+<div id="test">
+    <ul class="select_device__list">
+        @foreach (DeviceType deviceType in Model)
+        {
+            using (Ajax.BeginForm("SelectType", "Device",
+                new AjaxOptions
+                {
+                    UpdateTargetId = "content",
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    LoadingElementId = "loadingElement",
+                    OnFailure = "IoTApp.DeviceSelectType.onFailure",
+                    
+                }))
+            {
+                <li class="list__item">
+                    <h2 class="item__name">@deviceType.Name</h2>
+                    <p class="item__description">
+                        @deviceType.Description
+                    </p>
+                    <button class="button_base item__add_new_button" type="submit">
+                        @Strings.AddNew
+                    </button>
+                    <input type="hidden" name="Name" value="@deviceType.Name" />
+                    <input type="hidden" name="DeviceTypeId" value="@deviceType.DeviceTypeId" />
+                    <input type="hidden" name="Desciption" value="@deviceType.Description" />
+                    <input type="hidden" name="InstructionsUrl" value="@deviceType.InstructionsUrl" />
+                    <input type="hidden" name="IsSimulatedDevice" value="@deviceType.IsSimulatedDevice.ToString()" />
+                </li>
+            }
+        }
+    </ul>
+</div>

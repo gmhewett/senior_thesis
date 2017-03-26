@@ -1,0 +1,31 @@
+PODS:
+  - Alamofire (4.3.0)
+  - EVReflection (4.4.1):
+    - EVReflection/Core (= 4.4.1)
+  - EVReflection/Alamofire (4.4.1):
+    - Alamofire (~> 4.2)
+    - EVReflection/Core
+  - EVReflection/Core (4.4.1)
+  - KeychainSwift (7.0.0)
+  - Swinject (2.0.0)
+  - SwinjectStoryboard (1.0.0):
+    - Swinject (= 2.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.3)
+  - EVReflection
+  - EVReflection/Alamofire
+  - KeychainSwift (~> 7.0)
+  - Swinject (= 2.0.0)
+  - SwinjectStoryboard (= 1.0.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  EVReflection: 19aa5cd37051999ac2cab7a33d6619c97104f42a
+  KeychainSwift: b6947435dd78cc442c64a84ae648dd0e871cf448
+  Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
+  SwinjectStoryboard: 8e0d3c0202b64172bdf915d55e8dc83d9c4e7863
+
+PODFILE CHECKSUM: 652857fcccde14b7b69f8eccf7eaf231ba7b85a2
+
+COCOAPODS: 1.2.0
