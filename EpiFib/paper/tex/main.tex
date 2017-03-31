@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsfonts,amsthm,amssymb}
@@ -14,15 +14,19 @@
 \usepackage{gensymb}
 \usepackage[toc,page]{appendix}
 \usepackage[section]{placeins}
+\usepackage[parfill]{parskip}
+
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{algorithm}{section}
 
 \geometry{
-    left=1.25in,
-    right=1.25in,
+    left=1in,
+    right=1in,
     top=1.25in,
     bottom=1.25in
- }
-
-\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+}
 
 \begin{document}
 
@@ -32,12 +36,10 @@
 \include{contents}
 \include{introduction}
 \include{background}
-%\include{numbers}
 \include{location}
+\include{overview}
 \include{hardware}
 \include{software}
-%\include{evaluation}
-\include{budget}
 \include{conclusions}
 \include{appendix}
 \include{bibliography}

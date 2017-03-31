@@ -11,7 +11,7 @@ namespace PeerInfrastructure.Services
 
     public interface INotificationService
     {
-        Task NotifyHashedUserIdsAsync(IEnumerable<string> hashedIds, EmergencyInstanceRequest instanceRequest);
+        Task<IEnumerable<string>> NotifyHashedUserIdsAsync(IEnumerable<string> hashedIds, EmergencyInstanceRequest instanceRequest);
 
         Task Test();
     }

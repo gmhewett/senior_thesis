@@ -15,8 +15,23 @@ namespace Common.Models
 
         public ExactLocation OwnerLocation { get; set; }
 
+        public EmergencyUserInfo OwnerInfo { get; set; }
+
         public DateTime UpdatedTime { get; set; }
 
         public DateTime CreatedTime { get; set; }
+
+        public static explicit operator EmergencyInstanceRequest(EmergencyInstance v)
+        {
+            return new EmergencyInstanceRequest
+            {
+                EmergencyInstanceId = v.EmergencyInstanceId,
+                EmergencyType = v.EmergencyType,
+                OwnerLocation = v.OwnerLocation,
+                UpdatedTime = v.UpdatedTime,
+                CreatedTime = v.CreatedTime,
+                OwnerInfo = v.OwnerInfo
+            };
+        }
     }
 }

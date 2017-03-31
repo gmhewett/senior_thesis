@@ -11,14 +11,16 @@ import EVReflection
 
 final class EmergencyContainer: EVNetworkingObject
 {
+    var deviceId: String?
+    
     var emergencyTypesSupported: [EmergencyType]?
     
-    var exactLocation: ExactLocation?
+    var location: ExactLocation?
     
     convenience init(_ emergencyTypesSupported: [EmergencyType], exactLocation: ExactLocation)
     {
         self.init()
         self.emergencyTypesSupported = emergencyTypesSupported
-        self.exactLocation = exactLocation        
+        self.location = exactLocation
     }
 }

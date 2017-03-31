@@ -9,6 +9,8 @@ namespace Common.Models
 
     public class EmergencyContainer
     {
+        public string DeviceId { get; set; }
+
         public IEnumerable<EmergencyType> EmergencyTypesSupported { get; set; }
 
         public ExactLocation Location { get; set; }

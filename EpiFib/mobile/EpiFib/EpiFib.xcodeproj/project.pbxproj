@@ -26,6 +26,7 @@
 		A551AB911E62656300F9A4F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A551AB8F1E62656300F9A4F4 /* LaunchScreen.storyboard */; };
 		A551AB9C1E62656300F9A4F4 /* EpiFibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A551AB9B1E62656300F9A4F4 /* EpiFibTests.swift */; };
 		A551ABA71E62656300F9A4F4 /* EpiFibUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A551ABA61E62656300F9A4F4 /* EpiFibUITests.swift */; };
+		A57D5C0E1E88497C0083CBBA /* ContainerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57D5C0D1E88497C0083CBBA /* ContainerAnnotation.swift */; };
 		A57DD2B11E632A7D00640487 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DD2B01E632A7D00640487 /* RegisterViewController.swift */; };
 		A57DD2B41E632EBD00640487 /* EpiFibApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DD2B31E632EBD00640487 /* EpiFibApiService.swift */; };
 		A57DD2B71E6369A100640487 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DD2B61E6369A100640487 /* AuthService.swift */; };
@@ -94,6 +95,7 @@
 		A551ABA21E62656300F9A4F4 /* EpiFibUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EpiFibUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A551ABA61E62656300F9A4F4 /* EpiFibUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpiFibUITests.swift; sourceTree = "<group>"; };
 		A551ABA81E62656300F9A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A57D5C0D1E88497C0083CBBA /* ContainerAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerAnnotation.swift; sourceTree = "<group>"; };
 		A57DD2B01E632A7D00640487 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A57DD2B31E632EBD00640487 /* EpiFibApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpiFibApiService.swift; sourceTree = "<group>"; };
 		A57DD2B61E6369A100640487 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				A53CB0B71E7F2CD6000132D1 /* EmergencyResponderPacket.swift */,
 				A53CB0BB1E7F3BA3000132D1 /* EmergencyInstanceRequest.swift */,
 				A5D57B7E1E86484600943B47 /* ProgressHUD.swift */,
+				A57D5C0D1E88497C0083CBBA /* ContainerAnnotation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 			files = (
 				A53E8CF91E7EF34B006E7D3C /* FindHelpViewController.swift in Sources */,
 				A5A5BEF31E7D113A0041A629 /* SWRevealViewController.m in Sources */,
+				A57D5C0E1E88497C0083CBBA /* ContainerAnnotation.swift in Sources */,
 				A5EF5ED31E876B0D0003B2E4 /* NotificationService.swift in Sources */,
 				A57DD2B11E632A7D00640487 /* RegisterViewController.swift in Sources */,
 				A53CB0B61E7F2A50000132D1 /* EmergencyUserInfo.swift in Sources */,

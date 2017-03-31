@@ -7,32 +7,42 @@ namespace PeerInfrastructure.Services
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Common.Helpers;
     using Common.Models;
+    using IoTInfrastructure.Services;
     using PeerInfrastructure.Repository;
 
     public class EmergencyInstanceService : IEmergencyInstanceService
     {
         private readonly IEmergencyInstanceRepository emergencyInstanceRepository;
         private readonly IUserLocationService userLocationService;
+        private readonly INotificationService notificationService;
+        private readonly IDeviceService deviceService;
 
         public EmergencyInstanceService(
             IEmergencyInstanceRepository emergencyInstanceRepository, 
-            IUserLocationService userLocationService)
+            IUserLocationService userLocationService,
+            INotificationService notificationService,
+            IDeviceService deviceService)
         {
             EFGuard.NotNull(emergencyInstanceRepository, nameof(emergencyInstanceRepository));
             EFGuard.NotNull(userLocationService, nameof(userLocationService));
+            EFGuard.NotNull(notificationService, nameof(notificationService));
+            EFGuard.NotNull(deviceService, nameof(deviceService));
 
             this.emergencyInstanceRepository = emergencyInstanceRepository;
             this.userLocationService = userLocationService;
+            this.notificationService = notificationService;
+            this.deviceService = deviceService;
         }
 
-        public async Task<EmergencyInstance> GetEmergencyInstnaceAsync(string id)
+        public async Task<EmergencyInstance> GetEmergencyInstnaceAsync(string id, bool isDocDbId = true)
         {
             EFGuard.StringNotNull(id, nameof(id));
 
-            return await this.emergencyInstanceRepository.GetEmergencyInstanceAsync(id);
+            return await this.emergencyInstanceRepository.GetEmergencyInstanceAsync(id, isDocDbId);
         }
 
         public async Task<EmergencyOwnerPacket> GetExistingOwnerPacketForUser(string userId)
@@ -91,15 +101,53 @@ namespace PeerInfrastructure.Services
             throw new System.NotImplementedException();
         }
 
-        private Task<IEnumerable<EmergencyContainer>> GetNearbyContainers(ExactLocation location)
+        public async Task<bool> ToggleContainerAlarm(ContainerAlarmCommand containerAlarmCommand)
         {
-            return Task.FromResult<IEnumerable<EmergencyContainer>>(new List<EmergencyContainer>());
+            EmergencyInstance existingEmergency =
+                await this.GetEmergencyInstnaceAsync(containerAlarmCommand.EmergencyInstanceId, false);
+
+            if (existingEmergency.NearbyContainers.All(c => c.DeviceId != containerAlarmCommand.ContainerId))
+            {
+                return false;
+            }
+
+            IDictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "type", containerAlarmCommand.Value }
+            };
+
+            await this.deviceService.SendCommandAsync(containerAlarmCommand.ContainerId, "ToggleAlarm", parameters);
+
+            return true;
+        }
+
+        public async Task<EmergencyInstanceRequest> GetEmergencyNearbyUser(string userId)
+        {
+            var emergecnyNearby =
+               await this.emergencyInstanceRepository.GetEmergencyInstnaceWithLambda(e => e.UserIdsNotified.Contains(userId));
+
+            return emergecnyNearby == null ? null : (EmergencyInstanceRequest)emergecnyNearby;
+        }
+
+        private async Task<IEnumerable<EmergencyContainer>> GetNearbyContainers(ExactLocation location)
+        {
+            var devices = await this.deviceService.GetDevicesNear(location);
+
+            return devices.Select(device => new EmergencyContainer
+            {
+                DeviceId = device.DeviceProperties.DeviceID,
+                Location = new ExactLocation
+                {
+                    Latitude = device.DeviceProperties.Latitude ?? 0.0,
+                    Longitude = device.DeviceProperties.Longitude ?? 0.0
+                }
+            }).ToList();
         }
 
         private async Task<IEnumerable<string>> PingNearbyUsers(EmergencyInstanceRequest instanceRequest)
         {
             IEnumerable<string> hashedIds = await this.userLocationService.GetHashedUserIdsNearLocation(instanceRequest.OwnerLocation);
-            return new List<string>();
+            return await this.notificationService.NotifyHashedUserIdsAsync(hashedIds, instanceRequest);
         }
 
         private async Task<EmergencyInstance> ActOnEmergency(EmergencyInstanceRequest emergencyInstanceRequest, string ownerId)

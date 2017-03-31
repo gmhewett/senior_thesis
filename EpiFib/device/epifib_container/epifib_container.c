@@ -18,8 +18,11 @@
 
 #define SECONDS_PER_SEND 10
 
-void (*updateLedsOnCommand)(int);
-void (*soundAlarmOnCommand)(void);
+void (*toggleLedsOnCommand)(int);
+void (*toggleSoundOnCommand)(int);
+void (*toggleScreenOnCommand)(int);
+void (*toggleAlarmOnCommand)(int);
+int shouldFlashLeds = 0;
 
 // Define the Model
 BEGIN_NAMESPACE(Contoso);
@@ -41,7 +44,10 @@ DECLARE_MODEL(Thermostat,
     WITH_DATA(int, ExternalTemperature),
     WITH_DATA(int, Humidity),
     WITH_DATA(int, Door),
-    WITH_DATA(int, Light),
+    WITH_DATA(int, Leds),
+    WITH_DATA(int, Sound),
+    WITH_DATA(int, Screen),
+    WITH_DATA(int, Alarm),
     WITH_DATA(ascii_char_ptr, DeviceId),
 
     /* Device Info - This is command metadata + some extra fields */
@@ -54,7 +60,10 @@ DECLARE_MODEL(Thermostat,
     /* Commands implemented by the device */
     WITH_ACTION(SetTemperature, int, temperature),
     WITH_ACTION(SetHumidity, int, humidity),
-    WITH_ACTION(SetLight, int, intensity)
+    WITH_ACTION(ToggleLeds, int, type),
+    WITH_ACTION(ToggleSound, int, on),
+    WITH_ACTION(ToggleScreen, int, type),
+    WITH_ACTION(ToggleAlarm, int, type)
 );
 
 END_NAMESPACE(Contoso);
@@ -73,13 +82,38 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
     return EXECUTE_COMMAND_SUCCESS;
 }
 
-EXECUTE_COMMAND_RESULT SetLight(Thermostat* thermostat, int intensity)
+EXECUTE_COMMAND_RESULT ToggleLeds(Thermostat* thermostat, int type)
 {
-    LogInfo("Received light %d\r\n", intensity);
-    updateLedsOnCommand(intensity);
-    soundAlarmOnCommand();
-    //digitalWrite(LED_BUILTIN, intensity > 0 ? HIGH : LOW);
-    thermostat->Light = intensity;
+    LogInfo("Received light %d\r\n", type);
+    toggleLedsOnCommand(type);
+    thermostat->Leds = type;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+
+
+EXECUTE_COMMAND_RESULT ToggleSound(Thermostat* thermostat, int on)
+{
+    LogInfo("Received sound %d\r\n", on);
+    toggleSoundOnCommand(on);
+    thermostat->Sound = on;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+
+
+EXECUTE_COMMAND_RESULT ToggleScreen(Thermostat* thermostat, int type)
+{
+    LogInfo("Received screen %d\r\n", type);
+    toggleScreenOnCommand(type);
+    thermostat->Screen = type;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+
+EXECUTE_COMMAND_RESULT ToggleAlarm(Thermostat* thermostat, int type)
+{
+    LogInfo("Received alarm %d\r\n", type);
+    toggleAlarmOnCommand(type);
+    thermostat->Alarm = type;
+    shouldFlashLeds = type;
     return EXECUTE_COMMAND_SUCCESS;
 }
 
@@ -217,11 +251,19 @@ void updateDoor(Thermostat* thermostat, volatile byte* door)
     }
 }
 
-void epifib_container_run(volatile byte* door, void (*updateLeds)(int), void (*soundAlarm)(void))
+void epifib_container_run(
+    volatile byte* door, 
+    void (*toggleLeds)(int), 
+    void (*toggleSound)(int),
+    void (*toggleScreen)(int),
+    void (*toggleAlarm)(int),
+    void (*checkPress)(void))
 {
         initBme();
-        updateLedsOnCommand = updateLeds;
-        soundAlarmOnCommand = soundAlarm;
+        toggleLedsOnCommand = toggleLeds;
+        toggleSoundOnCommand = toggleSound;
+        toggleScreenOnCommand = toggleScreen;
+        toggleAlarmOnCommand = toggleAlarm;
 
         srand((unsigned int)time(NULL));
         if (serializer_init(NULL) != SERIALIZER_OK)
@@ -310,6 +352,7 @@ void epifib_container_run(volatile byte* door, void (*updateLeds)(int), void (*s
                                 else
                                 {
                                     sendMessage(iotHubClientHandle, buffer, bufferSize);
+                                    LogInfo("Sent device info\r\n");
                                 }
 
                             }
@@ -321,11 +364,16 @@ void epifib_container_run(volatile byte* door, void (*updateLeds)(int), void (*s
                         
                         time_t startTime;
                         time_t curTime;
+
+                        thermostat->Leds = 0;
+                        thermostat->Sound = 0;
+                        thermostat->Screen = 0;
+                        thermostat->Alarm = 0;
                         
                         while (1)
                         {
                             time(&curTime);
-                            
+                            checkPress();
                             if((int)difftime(curTime, startTime) > SECONDS_PER_SEND) {
                                 float Temp;
                                 float Humi;
@@ -339,9 +387,16 @@ void epifib_container_run(volatile byte* door, void (*updateLeds)(int), void (*s
                                 size_t bufferSize;
                                 time(&startTime);
 
+                                if (thermostat->Temperature > 100)
+                                {
+                                    continue;
+                                }
+
                                 updateDoor(thermostat, door);
 
-                                LogInfo("Sending sensor value Temperature = %d, Humidity = %d, Door = %x\r\n", thermostat->Temperature, thermostat->Humidity, thermostat->Door);
+                                LogInfo("Sending sensor value Temperature = %d, Humidity = %d, Door = %x\r, Leds = %x\r, Sound = %x\r, Screen = %x\r, Alarm = %x\r\n", 
+                                    thermostat->Temperature, thermostat->Humidity, thermostat->Door, thermostat->Leds,
+                                    thermostat->Sound, thermostat->Screen, thermostat-> Alarm);
 
                                 if (SERIALIZE(&buffer, &bufferSize, thermostat->DeviceId, thermostat->Temperature, thermostat->Humidity, thermostat->Door) != IOT_AGENT_OK)
                                 {
@@ -350,6 +405,11 @@ void epifib_container_run(volatile byte* door, void (*updateLeds)(int), void (*s
                                 else
                                 {
                                     sendMessage(iotHubClientHandle, buffer, bufferSize);
+                                }
+
+                                if (shouldFlashLeds)
+                                {
+                                   toggleLedsOnCommand(4);
                                 }
                             }
 

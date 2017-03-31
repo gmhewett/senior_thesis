@@ -11,7 +11,7 @@ namespace PeerInfrastructure.Repository
 
     public interface IEmergencyInstanceRepository
     {
-        Task<EmergencyInstance> GetEmergencyInstanceAsync(string id);
+        Task<EmergencyInstance> GetEmergencyInstanceAsync(string id, bool isDocDbId = true);
 
         Task<EmergencyInstance> GetEmergencyInstnaceWithLambda(Func<EmergencyInstance, bool> lambda);
 

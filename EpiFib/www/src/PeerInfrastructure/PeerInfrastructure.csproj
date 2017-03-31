@@ -111,7 +111,9 @@
       <DependentUpon>201703260145088_userdevicetoken.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApnsNotificationPayload.cs" />
     <Compile Include="Models\CloakedLocation.cs" />
+    <Compile Include="Models\EmergencyInstanceApnsNotfication.cs" />
     <Compile Include="Models\EpiFibUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EmergencyInstanceRepository.cs" />
@@ -141,6 +143,10 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{CADDC598-E1C6-4AC3-B297-395A9EBAB2B0}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IoTInfrastructure\IoTInfrastructure.csproj">
+      <Project>{f6ea6862-1eb5-49fd-9689-80c5c2d3ae13}</Project>
+      <Name>IoTInfrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

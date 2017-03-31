@@ -16,6 +16,8 @@ final class HomeViewController: UIViewController, SWRevealViewControllerDelegate
     var notificationService: NotificationService?
     var emergencyService: EmergencyService?
     var currentEmergency: EmergencyOwnerPacket?
+    var helpNeeded: EmergencyInstanceRequest?
+    var responderPacket: EmergencyResponderPacket?
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var responderLabel: UILabel!
@@ -41,7 +43,9 @@ final class HomeViewController: UIViewController, SWRevealViewControllerDelegate
         }
         
         self.initCurrentEmergencyButton(enable: false)
+        self.initHelpNeededButton(enable: false)
         self.checkForCurrentEmergency()
+        self.checkIfHelpNeeded()
         
         // self.responderLabel.isHidden = true
         // self.respondButton.isHidden = true
@@ -85,51 +89,44 @@ final class HomeViewController: UIViewController, SWRevealViewControllerDelegate
     func initCurrentEmergencyButton(enable: Bool)
     {
         self.currentEmergencyLabel.text = enable ? "Trying to find help!" : "No emergecies created."
-        self.goToCurrentEmergencyButton.titleLabel?.text = enable ? "Go to map" : ""
-        self.goToCurrentEmergencyButton.isUserInteractionEnabled = enable
+        self.goToCurrentEmergencyButton.setTitle(enable ? "Go to map" : "", for: .normal)
+        self.goToCurrentEmergencyButton.isHidden = !enable
     }
     
-    private func drawEmergencyButtons()
+    func checkIfHelpNeeded()
     {
-        let path: UIBezierPath = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 0, y: 0))
-        path.close()
-        
-        let layer: CAShapeLayer = CAShapeLayer()
-        layer.path = path.cgPath
-        layer.fillColor = UIColor.blue.cgColor
-        
-        layer.strokeColor = nil
-        self.view.layer.addSublayer(layer)
+        self.emergencyService?.checkIfHelpNeeded(completion: { (emergencyRequest, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                if emergencyRequest != nil {
+                    self.helpNeeded = emergencyRequest
+                    self.initHelpNeededButton(enable: true)
+                }
+            }
+        })
     }
     
-    private func createDiagonalButton(isLeft: Bool) -> UIButton
+    func initHelpNeededButton(enable: Bool)
     {
-        let frame: CGRect = self.view.frame
-        let path: UIBezierPath = UIBezierPath()
-        
-        path.move(to: CGPoint(x: frame.origin.x, y: frame.origin.y))
-        path.addLine(to: CGPoint(x: frame.origin.x, y: frame.size.width))
-        
-        if isLeft
-        {
-            path.addLine(to: CGPoint(x: frame.origin.x, y: frame.size.height))
-        }
-        else
-        {
-            path.addLine(to: CGPoint(x: frame.size.width, y: frame.size.height))
-        }
-        
-        let button = UIButton()
-        return button
+        self.responderLabel.text = enable ? "Someone needs your help!" : "All is well"
+        self.respondButton.setTitle(enable ? "Be a hero" : "", for: .normal)
+        self.respondButton.isHidden = !enable
     }
     
-    func checkForEmergenciesNearby()
-    {
+    @IBAction func respondButtonPressed(_ sender: Any) {
+        self.emergencyService?.respondToEmergency(emergencyInstanceId: (self.helpNeeded?.emergencyInstanceId)!, completion: { (responderPacket, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                if responderPacket != nil {
+                    self.responderPacket = responderPacket
+                    self.performSegue(withIdentifier: "respondToEmergency", sender: self)
+                }
+            }
+        })
     }
+    
     
     // MARK: - Navigation
     
@@ -142,6 +139,8 @@ final class HomeViewController: UIViewController, SWRevealViewControllerDelegate
             }
         } else if let vc = segue.destination as? FindHelpViewController {
             vc.ownerPacket = self.currentEmergency
+        } else if let vc = segue.destination as? ResponderViewController {
+            vc.emergencyResponderPacket = self.responderPacket
         }
     }
     

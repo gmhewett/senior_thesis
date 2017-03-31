@@ -1,7 +1,104 @@
 \appendix
-\section{Engineering Drawings}
 
-\section{Specification Sheets}
+\section{Container Administration Screenshots} \label{app:device-admin}
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{desktop-devicelist}
+\caption{Container administrator view of all container in the system.}
+\label{fig:desktop-devicelist}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{desktop-adddevice}
+\caption{Container administrator ability to add a real or simulated container.}
+\label{fig:desktop-adddevice}
+\end{figure}
+
+\section{Mobile App Screenshots} \label{app:screenshots}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+\frame{\includegraphics[height=10cm]{popoutmenu}}
+\label{fig:mproto-1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\frame{\includegraphics[height=10cm]{login}}
+\label{fig:mproto1-2}
+\end{subfigure}
+\caption{(a) Pop-out menu and (b) user login.}
+\label{fig:mproto1-1-2}
+\end{figure}
+
+\section{Bill of Materials}
+
+Table \ref{tab:bill-of-materials} lists all project items and their costs. Resistors, capacitors, wires, and solder are omitted. Microsoft Azure prices listed are for production level implementation. During development, free tiers were used and the price was significantly lower.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+    \bf Item & \bf Vendor & \bf Part No. & \bf Qty & \bf Unit Cost & \bf Monthly Cost \\\hline\hline
+    Adafruit Feather M0 & Adafruit & 3010 & 1 & 34.95 & 0.00 \\\hline
+    1$''$ 8 $\ohm$ Speaker & Digikey & 102-2501-ND & 1 & 2.99 & 0.00 \\\hline
+    2.8$''$ TFT LCD Touchscreen & Adafruit & 1710 & 1 & 29.95 & 0.00 \\\hline
+    US5881LUA Hall Effect Sensor & Adafruit & 158 & 1 & 2.00 & 0.00 \\\hline
+    High-Strength Magnet & Adafruit & 9 & 1 & 2.50 & 0.00 \\\hline
+    Full-Size Breadboard & Adafruit & 239 & 1 & 5.95 & 0.00 \\\hline
+    Half-Size Breadboard & Adafruit & 64 & 1 & 5.00 & 0.00 \\\hline
+    Addressable LED Strip & Sparkfun & 14015 & 1 & 15.95 & 0.00 \\\hline
+    Lithium Ion Battery & Adafruit & 15778 & 1 & 7.95 & 0.00 \\\hline
+    Web App Services & Msft. Azure & - & 1 & 0.00 & 55.88 \\\hline
+    IoT Hub & Msft. Azure & - & 1 & 0.00 & 50.00 \\\hline
+    DocumentDB Storage & Msft. Azure & - & 1 & 0.00 & 23.81 \\\hline
+    Blob Storage & Msft. Azure & - & 1 & 0.00 & 0.03 \\\hline
+    Event Hub & Msft. Azure & - & 1 & 0.00 & 11.16 \\\hline
+    Stream Analytics & Msft. Azure & - & 1 & 0.00 & 79.20 \\\hline\hline
+    & & & & \bf \$107.24 & \bf \$220.08 \\\hline
+\end{tabular}
+\caption{Bill of materials for project implementation at scale.}
+\label{tab:bill-of-materials}
+\end{center}
+\end{table}
+
+\section{Engineering Drawings} \label{app:cad}
+
+Figure \ref{fig:cad-drawing} shows the major dimensions of the prototype container created.
+
+\begin{figure}[h]
+\begin{center}
+    \includegraphics[width=\linewidth]{box_cad}
+    \caption{CAD Drawing for prototype container.}
+    \label{fig:cad-drawing}
+\end{center}    
+\end{figure}
+
+
+\section{Specification Sheets and Values} \label{app:spec-sheets}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+    Component & Value & Units \\\hline
+    $R_1$ & 10 & k$\ohm$ \\\hline
+    $R_2$ & 5 & k$\ohm$ \\\hline
+    $R_3$ & 91 & k$\ohm$ \\\hline
+    $R_4$ & 5 & k$\ohm$ \\\hline
+    $R_5$ & 160 & k$\ohm$ \\\hline
+    $C_1$ & 4.7& nF \\\hline
+    $C_2$ & 4.7 & nF \\\hline
+    $C_3$ & 4.7& nF \\\hline
+    $C_4$ & 4.7 & nF \\\hline
+    $C_5$ & 15 & $\mu$F \\\hline
+    $C_6$ & 0.1 & $\mu$F \\\hline
+    $C_7$ & 10 & nF \\\hline
+    $C_8$ & 0.1 & nF \\\hline
+\end{tabular}  
+\caption{Resistor and capacitor values used in circuitry.}
+\label{tab:schem-vals} 
+\end{center}
+\end{table}
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{specs/feather_schem.png}
@@ -23,15 +120,17 @@
     \caption{\label{apastrip}iPixel APA102 addressable LED strip specification sheet.}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[t]
 \begin{center}
-    \includegraphics[width=10cm]{specs/halleffect_schem.png}
-    \caption{\label{halleffect}iPixel APA102 addressable LED strip specification sheet.}
+    \includegraphics[width=7cm]{specs/halleffect_schem.png}
+    \caption{\label{halleffect} US5881LUA hall effect sensor.}
 \end{center}
 \end{figure}
 
 \section{Repository}
 
-The source files for this project are far to numerous to include in this paper. Instead, the following GitHub repository will be maintained for as circumstances allow. The repository can be found at
+The source files for this project are far too numerous to include in this paper. Instead, the following GitHub repository will be maintained for as long as circumstances allow and can be found at
 
-\url{https}
+\noindent\url{https://github.com/gmhewett/senior_thesis}
+
+

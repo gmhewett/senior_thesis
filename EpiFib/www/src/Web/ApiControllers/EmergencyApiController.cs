@@ -36,6 +36,11 @@ namespace Web.ApiControllers
         [Route("create")]
         public async Task<EmergencyOwnerPacket> CreateEmergencyInstance(EmergencyInstanceRequest emergencyRequest)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return null;
+            }
+
             var existingInstance = await this.emergencyInstanceService.GetExistingOwnerPacketForUser(User.Identity.GetUserId());
 
             return existingInstance ??
@@ -58,6 +63,45 @@ namespace Web.ApiControllers
             return ownerPacket != null
                 ? Request.CreateResponse(HttpStatusCode.OK, ownerPacket)
                 : Request.CreateResponse(HttpStatusCode.OK, "No current packet.");
+        }
+
+        [HttpPost]
+        [Route("container")]
+        public async Task<HttpResponseMessage> ToggleContainerAlarm(ContainerAlarmCommand containerAlarmCommand)
+        {
+            if (!this.ModelState.IsValid || string.IsNullOrWhiteSpace(containerAlarmCommand.EmergencyInstanceId) ||
+                string.IsNullOrWhiteSpace(containerAlarmCommand.ContainerId))
+            {
+                return this.Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+
+            return await this.emergencyInstanceService.ToggleContainerAlarm(containerAlarmCommand)
+                ? this.Request.CreateResponse(HttpStatusCode.OK)
+                : this.Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        [HttpGet]
+        [Route("nearby")]
+        public async Task<HttpResponseMessage> GetEmergenciesNearby()
+        {
+            EmergencyInstanceRequest emergency = await this.emergencyInstanceService.GetEmergencyNearbyUser(User.Identity.GetUserId());
+
+            return emergency != null
+                ? Request.CreateResponse(HttpStatusCode.OK, emergency)
+                : Request.CreateResponse(HttpStatusCode.OK, "No current packet.");
+        }
+
+        [HttpPost]
+        [Route("respond")]
+        public async Task<HttpResponseMessage> RespondToEmergency(EmergencyInstanceRequest request)
+        {
+            var responderPacket =
+                (EmergencyResponderPacket)
+                    await this.emergencyInstanceService.GetEmergencyInstnaceAsync(request.EmergencyInstanceId);
+
+            return responderPacket != null
+                ? Request.CreateResponse(HttpStatusCode.OK, responderPacket)
+                : Request.CreateResponse(HttpStatusCode.BadRequest, "Could not respond.");
         }
 
         [HttpGet]

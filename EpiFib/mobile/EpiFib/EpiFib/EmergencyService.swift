@@ -53,22 +53,57 @@ final class EmergencyService: NSObject
                 }
                 else
                 {
+                    print(response.result.value ?? "NO DATA")
                     completion(response.result.value, response.error)
                 }
         }
-
-//            .responseJSON { (jsonResponse<EmergencyOwnerPacket>) in
-//                if jsonResponse.response?.statusCode != 200
-//                {
-//                    print(jsonResponse.response?.statusCode ?? "NO RESPONSE")
-//                    print(jsonResponse.result.value ?? "NO DATA")
-//                }
-//                else
-//                {
-////                    let a = jsonResponse.result.value as! EmergencyOwnerPacket
-////                    print(jsonResponse)
-//                    completion(jsonResponse.result.value as? EmergencyOwnerPacket, jsonResponse.error)
-//                }
-//            }
+    }
+    
+    func toggleContainer(on: Bool, containerId: String, emergencyInstanceId: String)
+    {
+        let parameters: [String : Any] = [
+            "EmergencyInstanceId" : emergencyInstanceId,
+            "ContainerId" : containerId,
+            "Value" : on ? 1 : 0
+        ]
+        
+        self.epiFibApiService.sendRequest(endpoint: "emergency/container", method: .post, parameters: parameters)
+        .responseJSON { (response) in
+            print(response)
+        }
+    }
+    
+    func checkIfHelpNeeded(completion: @escaping (EmergencyInstanceRequest?, Error?) -> Void)
+    {
+        self.epiFibApiService.sendRequest(endpoint: "emergency/nearby", method: .get, parameters: nil)
+            .responseObject { (response: DataResponse<EmergencyInstanceRequest>) in
+                if response.response?.statusCode != 200
+                {
+                    print(response.response?.statusCode ?? "NO RESPONSE")
+                    print(response.result.value ?? "NO DATA")
+                }
+                else
+                {
+                    print(response.result.value ?? "NO DATA")
+                    completion(response.result.value, response.error)
+                }
+        }
+    }
+    
+    func respondToEmergency(emergencyInstanceId: String, completion: @escaping (EmergencyResponderPacket?, Error?) -> Void)
+    {
+        self.epiFibApiService.sendRequest(endpoint: "emergency/nearby", method: .get, parameters: nil)
+            .responseObject { (response: DataResponse<EmergencyResponderPacket>) in
+                if response.response?.statusCode != 200
+                {
+                    print(response.response?.statusCode ?? "NO RESPONSE")
+                    print(response.result.value ?? "NO DATA")
+                }
+                else
+                {
+                    print(response.result.value ?? "NO DATA")
+                    completion(response.result.value, response.error)
+                }
+            }
     }
 }

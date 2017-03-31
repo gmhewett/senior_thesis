@@ -46,11 +46,13 @@ class ResponderViewController: UIViewController, MKMapViewDelegate {
     func initMap()
     {
         self.mapView.showsUserLocation = true
-        //let ownerLat = self.emergencyResponderPacket?.ownerLocation.latitude
-        //let ownerLong = self.emergencyResponderPacket?.ownerLocation.longitude
+        let ownerLat = self.emergencyResponderPacket?.ownerLocation?.latitude
+        let ownerLong = self.emergencyResponderPacket?.ownerLocation?.longitude
         // Mass Ave 42.373071, -71.117941
-        //let ownerLocation = CLLocationCoordinate2D(latitude: ownerLat!, longitude: ownerLong!)
-        let ownerLocation = CLLocationCoordinate2D(latitude: 42.373071, longitude: -71.117941)
+        let ownerLocation = CLLocationCoordinate2D(latitude: CLLocationDegrees(ownerLat!), longitude: CLLocationDegrees(ownerLong!))
+//        let ownerLocation = CLLocationCoordinate2D(latitude: 42.373071, longitude: -71.117941)
+        let annotation = ContainerAnnotation(title: "Jennifer", locationName: "", coordinate: CLLocationCoordinate2D(latitude: CLLocationDegrees(ownerLat!), longitude: CLLocationDegrees(ownerLong!)))
+        self.mapView.addAnnotation(annotation)
         
         let currentLocation = self.locationService?.currentLocation2D
         
@@ -71,7 +73,7 @@ class ResponderViewController: UIViewController, MKMapViewDelegate {
                 let route: MKRoute = routes.sorted(by: {$0.expectedTravelTime < $1.expectedTravelTime})[0]
                 self.mapView.add(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect,
-                                          edgePadding: UIEdgeInsetsMake(30.0, 30.0, 30.0, 30.0),
+                                          edgePadding: UIEdgeInsetsMake(70.0, 70.0, 70.0, 70.0),
                                           animated: true)
                 self.activityIndicator?.removeFromSuperview()
             } else {
@@ -102,5 +104,25 @@ class ResponderViewController: UIViewController, MKMapViewDelegate {
             polylineRenderer.lineWidth = 5
         }
         return polylineRenderer
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? ContainerAnnotation {
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                as? MKPinAnnotationView { // 2
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                // 3
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            }
+            return view
+        }
+        return nil
     }
 }

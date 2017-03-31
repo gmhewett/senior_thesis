@@ -386,7 +386,12 @@ namespace IoTInfrastructure.Services
 
             ApplyPropertyValueModels(device.DeviceProperties, devicePropertyValueModels);
         }
-        
+
+        public async Task<IEnumerable<DeviceModel>> GetDevicesNear(ExactLocation location)
+        {
+            return await this.deviceRegistryListRepository.GetDevicesNear(location);
+        }
+
         private static IEnumerable<DevicePropertyValueModel> ExtractPropertyValueModels(
             DeviceProperties deviceProperties)
         {

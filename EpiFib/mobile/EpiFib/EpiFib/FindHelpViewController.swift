@@ -19,6 +19,8 @@ final class FindHelpViewController: UIViewController, CLLocationManagerDelegate,
     var ownerPacket: EmergencyOwnerPacket?
     var activityIndicator: ProgressHUD?
     var mapIsInited: Bool = false
+    let regionRadius = 500.0
+    var turnContainerOn = true
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -88,21 +90,63 @@ final class FindHelpViewController: UIViewController, CLLocationManagerDelegate,
     
     private func initMapView()
     {
-//        if let initialLocation = locationManager.location
-//        {
-//            self.centerMapOnLocation(location: initialLocation)
-//        }
+        self.mapView.delegate = self
+        
+        if let initialLocation = self.locationService?.currentLocation
+        {
+            self.centerMapOnLocation(location: CLLocation(latitude: CLLocationDegrees(initialLocation.latitude!), longitude: CLLocationDegrees(initialLocation.longitude!)))
+        }
         
         self.mapView.showsUserLocation = true
+        
+        if self.ownerPacket?.nearbyContainers != nil {
+            for container in (self.ownerPacket?.nearbyContainers)! {
+                let annotation = ContainerAnnotation(title: "Container", locationName: container.deviceId ?? "", coordinate: CLLocationCoordinate2D(latitude: CLLocationDegrees((container.location?.latitude)!), longitude: CLLocationDegrees((container.location?.longitude)!)))
+                self.mapView.addAnnotation(annotation)
+            }
+        }
     }
     
     private func centerMapOnLocation(location: CLLocation)
     {
-//        let coordinateRegion = MKCoordinateRegionMakeWithDistance(
-//            location.coordinate,
-//            self.regionRadius * 2.0,
-//            self.regionRadius * 2.0)
-//        
-//        self.mapView.setRegion(coordinateRegion, animated: true)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(
+            location.coordinate,
+            self.regionRadius * 2.0,
+            self.regionRadius * 2.0)
+        
+        self.mapView.setRegion(coordinateRegion, animated: true)
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? ContainerAnnotation {
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                as? MKPinAnnotationView { // 2
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                // 3
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            }
+            return view
+        }
+        return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print(control)
+        print(view)
+        
+        if control == view.rightCalloutAccessoryView {
+            if let container = view.annotation as? ContainerAnnotation {
+                self.emergencyService?.toggleContainer(on: self.turnContainerOn, containerId: container.deviceId!, emergencyInstanceId: (self.ownerPacket?.emergencyInstanceId)!)
+                self.turnContainerOn = !self.turnContainerOn
+            }
+        }
+    }
+
 }

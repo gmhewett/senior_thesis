@@ -23,7 +23,7 @@ namespace Common.Models
 
         public static explicit operator EmergencyResponderPacket(EmergencyInstance v)
         {
-            return new EmergencyResponderPacket
+            return v == null ? null : new EmergencyResponderPacket
             {
                 EmergencyInstanceId = v.EmergencyInstanceId,
                 EmergencyType = v.EmergencyType,

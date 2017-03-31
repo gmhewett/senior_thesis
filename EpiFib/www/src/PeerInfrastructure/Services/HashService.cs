@@ -12,14 +12,20 @@ namespace PeerInfrastructure.Services
 
     public class HashService : IHashService
     {
+        private readonly SHA256 hash = SHA256.Create();
+
         public string HashString(string str)
         {
-            using (var hash = SHA256.Create())
-            {
-                return string.Concat(hash
-                    .ComputeHash(Encoding.UTF8.GetBytes(str))
-                    .Select(b => b.ToString("X2")));
-            }
+            return string.Concat(this.hash
+                .ComputeHash(Encoding.UTF8.GetBytes(str))
+                .Select(b => b.ToString("X2")));
+
+            ////    using (var hash = SHA256.Create())
+            ////    {
+            ////        return string.Concat(hash
+            ////            .ComputeHash(Encoding.UTF8.GetBytes(str))
+            ////            .Select(b => b.ToString("X2")));
+            ////    }
         }
     }
 }

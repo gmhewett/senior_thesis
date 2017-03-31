@@ -270,29 +270,35 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvv-pd-Nou">
                                 <rect key="frame" x="20" y="305.5" width="157.5" height="311.5"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Find an Autoinjector"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Find an Autoinjector">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="epP-Gh-sgm" kind="show" identifier="autoinjectorEmergency" id="CK7-BV-gEV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv8-dR-gz9">
                                 <rect key="frame" x="197.5" y="305.5" width="157.5" height="311.5"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Find a Defibrillator"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Find a Defibrillator">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="epP-Gh-sgm" kind="show" identifier="defibEmergency" id="vsF-fI-Mk9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbC-wG-qSs">
                                 <rect key="frame" x="20" y="124.5" width="335" height="50"/>
-                                <color key="backgroundColor" red="0.38431372549999998" green="0.63137254899999995" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xRF-li-QBn"/>
                                 </constraints>
-                                <state key="normal" title="Be a Hero"/>
+                                <state key="normal" title="Be a Hero">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
-                                    <segue destination="b7r-Wh-mwp" kind="presentation" id="pxN-ZR-Jrf"/>
+                                    <action selector="respondButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vYB-k0-mQ5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someone needs your help!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEf-gx-9Dk">
@@ -303,11 +309,13 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFD-U2-NPn">
                                 <rect key="frame" x="20" y="235.5" width="335" height="50"/>
-                                <color key="backgroundColor" red="0.4549019608" green="0.68627450980000004" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Smi-Z3-Y7x"/>
                                 </constraints>
-                                <state key="normal" title="Find Help"/>
+                                <state key="normal" title="Find Help">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="goToCurrentEmergencyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r6x-KM-gj1"/>
                                 </connections>
@@ -358,6 +366,7 @@
                         <outlet property="respondButton" destination="gbC-wG-qSs" id="2rV-aZ-hSQ"/>
                         <outlet property="responderLabel" destination="OEf-gx-9Dk" id="6SH-Mf-VZy"/>
                         <segue destination="0JB-E4-IZg" kind="show" identifier="goToEmergency" id="jcr-Lc-PBx"/>
+                        <segue destination="b7r-Wh-mwp" kind="presentation" identifier="respondToEmergency" id="hWK-lB-Brv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -431,11 +440,13 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mX-ww-e1N">
                                 <rect key="frame" x="20" y="283" width="335" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="jsx-9R-EJQ"/>
                                 </constraints>
-                                <state key="normal" title="Call 911"/>
+                                <state key="normal" title="Call 911">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="call911ButtonPressed:" destination="epP-Gh-sgm" eventType="touchUpInside" id="lJ5-Ea-8b8"/>
                                 </connections>
@@ -451,11 +462,13 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQw-iL-IHZ">
                                 <rect key="frame" x="20" y="542" width="335" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lnl-2U-F4y"/>
                                 </constraints>
-                                <state key="normal" title="Continue"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="0JB-E4-IZg" kind="show" identifier="createEmergencyInstance" id="0tr-9l-Gig"/>
                                 </connections>
@@ -544,7 +557,7 @@
             </objects>
             <point key="canvasLocation" x="3210" y="647"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="H70-ij-Jsu">
             <objects>
                 <viewController storyboardIdentifier="Profile" id="MeX-aQ-l56" customClass="ProfileViewController" customModule="EpiFib" customModuleProvider="target" sceneMemberID="viewController">
@@ -558,22 +571,26 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTv-Et-gOJ">
                                 <rect key="frame" x="20" y="308" width="147.5" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="uvs-OZ-5fw"/>
                                 </constraints>
-                                <state key="normal" title="Notifications"/>
+                                <state key="normal" title="Notifications">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="notificationsButtonPressed:" destination="MeX-aQ-l56" eventType="touchUpInside" id="IHe-Hq-Ht3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAy-Zi-CYZ">
                                 <rect key="frame" x="207.5" y="308" width="147.5" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PS2-6n-ZSf"/>
                                 </constraints>
-                                <state key="normal" title="Location"/>
+                                <state key="normal" title="Location">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="locationButtonPressed:" destination="MeX-aQ-l56" eventType="touchUpInside" id="In4-d9-3IL"/>
                                 </connections>
@@ -589,7 +606,7 @@
                             <constraint firstItem="SAy-Zi-CYZ" firstAttribute="width" secondItem="cTv-Et-gOJ" secondAttribute="width" id="uS2-zo-mt1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="e1J-p0-G67">
+                    <navigationItem key="navigationItem" title="Profile" id="e1J-p0-G67">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="Gdc-cw-eUd"/>
                     </navigationItem>
                     <userDefinedRuntimeAttributes>

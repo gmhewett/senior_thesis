@@ -8,7 +8,13 @@
 extern "C" {
 #endif
 
-void epifib_container_run(volatile byte* door, void (*updateLeds)(int), void (*soundAlarm)(void));
+void epifib_container_run(
+    volatile byte* door, 
+    void (*toggleLeds)(int), 
+    void (*toggleSound)(int),
+    void (*toggleScreen)(int),
+    void (*toggleAlarm)(int),
+    void (*checkPress)(void));
 
 #ifdef __cplusplus
 }

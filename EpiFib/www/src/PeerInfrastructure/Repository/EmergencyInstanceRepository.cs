@@ -6,6 +6,7 @@
 namespace PeerInfrastructure.Repository
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -24,14 +25,24 @@ namespace PeerInfrastructure.Repository
             this.documentDbClient = documentDbClient;
         }
 
-        public async Task<EmergencyInstance> GetEmergencyInstanceAsync(string id)
+        public async Task<EmergencyInstance> GetEmergencyInstanceAsync(string id, bool isDocDbId = true)
         {
             EFGuard.NotNull(id, nameof(id));
 
             IQueryable<EmergencyInstance> query = await this.documentDbClient.QueryAsync();
             try
             {
-                IEnumerable<EmergencyInstance> locations = query.Where(e => e.id == id).ToList();
+                Func<EmergencyInstance, bool> lambda;
+                if (isDocDbId)
+                {
+                    lambda = e => e.id == id;
+                }
+                else
+                {
+                    lambda = e => e.EmergencyInstanceId == id;
+                }
+
+                IEnumerable<EmergencyInstance> locations = query.Where(lambda).ToList();
                 return locations.FirstOrDefault();
             }
             catch (Exception ex)

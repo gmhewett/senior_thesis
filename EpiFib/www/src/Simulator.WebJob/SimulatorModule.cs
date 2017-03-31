@@ -35,6 +35,7 @@ namespace Simulator.WebJob
             builder.RegisterType<AzureTableStorageClientFactory>().As<IAzureTableStorageClientFactory>();
             builder.RegisterType<BlobStorageClientFactory>().As<IBlobStorageClientFactory>();
             builder.RegisterGeneric(typeof(DocumentDbClientBase<>)).As(typeof(IDocumentDbClientBase<>));
+            builder.RegisterGeneric(typeof(DeviceDocumentDbClient<>)).As(typeof(IDeviceDocumentDbClient<>));
         }
     }
 }

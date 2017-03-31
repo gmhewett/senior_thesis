@@ -16,6 +16,7 @@ namespace PeerInfrastructure.Services
     using Common.Helpers;
     using Common.Models;
     using Newtonsoft.Json.Linq;
+    using PeerInfrastructure.Models;
     using PeerInfrastructure.Repository;
     using PushSharp.Apple;
 
@@ -57,17 +58,39 @@ namespace PeerInfrastructure.Services
             this.apnsBroker.Start();
         }
 
-        public async Task NotifyHashedUserIdsAsync(
+        public async Task<IEnumerable<string>> NotifyHashedUserIdsAsync(
             IEnumerable<string> hashedIds, 
             EmergencyInstanceRequest instanceRequest)
         {
             var users = await this.dbContext.Users
-                .Where(u => hashedIds.Contains(this.hashService.HashString(u.Id)))
+                .Where(u => u.DeviceToken != null && u.DeviceToken != string.Empty)
+                .Select(u => new { u.Id, u.DeviceToken })
                 .ToListAsync();
 
-            ////foreach (EpiFibUser user in users)
-            ////{
-            ////}
+            foreach (var user in users)
+            {
+                if (hashedIds.Contains(this.hashService.HashString(user.Id)) && !string.IsNullOrWhiteSpace(user.DeviceToken))
+                {
+                    var payload = new EmergencyInstanceApnsNotfication
+                    {
+                        aps = new ApnsNotificationPayload
+                        {
+                            alert = "Someone needs your help right away!",
+                            badge = "1"
+                        },
+                        emergencyInstance = instanceRequest
+                    };
+
+                    var notification = new ApnsNotification
+                    {
+                        DeviceToken = user.DeviceToken,
+                        Payload = JObject.FromObject(payload)
+                    };
+                    this.apnsBroker.QueueNotification(notification);
+                }
+            }
+
+            return users.Select(u => u.Id).ToList();
         }
 
         public async Task Test()
@@ -75,7 +98,7 @@ namespace PeerInfrastructure.Services
             await Task.Delay(0);
             this.apnsBroker.QueueNotification(new ApnsNotification
             {
-                DeviceToken = "FAEE5126C5EFB4389B56609E7172BED0243E31C26EDA7B458E3407ECE7DEA44A",
+                DeviceToken = "6301FAF46B15FFD7D679601CC25F85171A23A11FAA83FA8E994F272EF68CBF7B",
                 Payload = JObject.Parse("{\"aps\":{\"badge\":7,\"alert\" : \"You can be me when you push this clean.\"}}")
             });
         }

@@ -42,6 +42,26 @@ namespace IoTInfrastructure.Repository
             }
         }
 
+        public async Task<IEnumerable<DeviceModel>> GetDevicesNear(ExactLocation location)
+        {
+            IQueryable<DeviceModel> query = await this.documentClient.QueryAsync();
+            try
+            {
+                IEnumerable<DeviceModel> devices =
+                    from dev in query
+                    let lat = Math.Abs(Math.Abs(dev.DeviceProperties.Latitude.Value) - Math.Abs(location.Latitude)) < 0.10
+                    let lon = Math.Abs(Math.Abs(dev.DeviceProperties.Longitude.Value) - Math.Abs(location.Longitude)) < 0.10
+                    where lat && lon
+                    select dev;
+
+                return devices;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Could not get device: {ex}");
+            }
+        }
+
         public async Task<DeviceModel> AddDeviceAsync(DeviceModel device)
         {
             EFGuard.NotNull(device, nameof(device));

@@ -10,7 +10,7 @@ namespace PeerInfrastructure.Services
 
     public interface IEmergencyInstanceService
     {
-        Task<EmergencyInstance> GetEmergencyInstnaceAsync(string id);
+        Task<EmergencyInstance> GetEmergencyInstnaceAsync(string id, bool isDocDbId = true);
 
         Task<EmergencyOwnerPacket> GetExistingOwnerPacketForUser(string userId);
 
@@ -23,5 +23,9 @@ namespace PeerInfrastructure.Services
         Task<EmergencyResponderPacket> UpdateEmergencyResponderInfoAsync(EmergencyUserInfo responderInfo);
 
         Task DeleteEmergencyInstanceAsync(string id);
+
+        Task<bool> ToggleContainerAlarm(ContainerAlarmCommand containerAlarmCommand);
+
+        Task<EmergencyInstanceRequest> GetEmergencyNearbyUser(string userId);
     }
 }

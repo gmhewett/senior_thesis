@@ -42,5 +42,7 @@ namespace IoTInfrastructure.Services
         IEnumerable<DevicePropertyValueModel> ExtractDevicePropertyValuesModels(DeviceModel device);
 
         void ApplyDevicePropertyValueModels(DeviceModel device, IEnumerable<DevicePropertyValueModel> devicePropertyValueModels);
+
+        Task<IEnumerable<DeviceModel>> GetDevicesNear(ExactLocation location);
     }
 }
